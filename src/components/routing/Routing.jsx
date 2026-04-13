@@ -1,10 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import ErrorPages from "../errorPages/ErrorPages";
-import DashBoard from "../allNavButton/dashBoard/DashBoard";
 import MainLayouts from "../layouts/MainLayouts";
 import HomePages from "../homePages/HomePages";
 import Home from "../allNavButton/home/Home";
-import Menu from "../allNavButton/menu/Menu";
+import Timeline from "../allNavButton/timeline/Timeline";
+import Stats from "../allNavButton/stats/Stats";
 
 export const router = createBrowserRouter([
   {
@@ -20,12 +20,12 @@ export const router = createBrowserRouter([
         Component: Home
       },
       {
-        path: '/menu',
-        Component: Menu
+        path: '/timeline',
+        Component: Timeline
       },
       {
-        path: '/dashBoard',
-        Component: DashBoard
+        path: '/stats',
+        Component: Stats
       }
     ]
   },
