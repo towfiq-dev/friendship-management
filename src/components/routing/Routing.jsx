@@ -10,27 +10,27 @@ export const router = createBrowserRouter([
   {
     path: "/",
     Component: MainLayouts,
-    children:[
+    children: [
       {
         index: true,
-        Component: HomePages
+        Component: HomePages,
       },
       {
-        path: '/home',
-        Component: Home
+        path: "/home",
+        Component: Home,
       },
       {
-        path: '/timeline',
-        Component: Timeline
+        path: "/timeline",
+        Component: Timeline,
       },
       {
-        path: '/stats',
-        Component: Stats
-      }
-    ]
+        path: "/stats",
+        Component: Stats,
+      },
+    ],
   },
   {
-    path: '*',
-    Component: ErrorPages
-  }
+    path: "*",
+    Component: ErrorPages,
+  },
 ]);
