@@ -5,6 +5,7 @@ import HomePages from "../homePages/HomePages";
 import Home from "../allNavButton/home/Home";
 import Timeline from "../allNavButton/timeline/Timeline";
 import Stats from "../allNavButton/stats/Stats";
+import FriendsDetails from "../all friends details/friendsDetails";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
         path: "/stats",
         Component: Stats,
       },
+      {
+        path: '/friendsDetails/:friendsDetailsId',
+        Component: FriendsDetails
+      }
     ],
   },
   {
