@@ -1,8 +1,9 @@
-import React, { use } from 'react';
+import React, { use, useContext } from 'react';
 import { FiArchive, FiPhoneCall } from 'react-icons/fi';
 import { HiOutlineBellAlert } from 'react-icons/hi2';
 import { MdDelete, MdOutlineTextsms, MdOutlineVideocam } from 'react-icons/md';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { MainContext } from '../contexts/MainContext';
 
 const friendsDetailsFetch = fetch('/friends.json').then(res => res.json())
 
@@ -11,12 +12,19 @@ const FriendsDetails = () => {
   const { friendsDetailsId } = useParams()
 
   const expectedFriends = friendsDetailsData.find((friends) => friends.id == friendsDetailsId)
-  const { name, picture, tag, status, bio, goal, next_due_date, days_since_contact, email } = expectedFriends
+  const { name, picture, tag, status, bio, goal, next_due_date, days_since_contact, email} = expectedFriends
+  const {handleCall} = useContext(MainContext)
+  
+  // const [removed, setRemoved] = useState(expectedFriends)
+  // const handleDelete = (current)=>{
+  // const filteredDelete = removed.filter((friends)=>friends.id !== current.id)
+  // setRemoved(filteredDelete)
+  // }
 
   return (
     <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 lg:mt-12 pb-10'>
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10'>
-        
+
         {/* first-column (Profile & Actions) */}
         <div className='lg:col-span-5 xl:col-span-4'>
           <div className='bg-white border border-gray-100 shadow-xl rounded-3xl p-8 text-center mb-6 transition-all hover:shadow-2xl'>
@@ -25,23 +33,23 @@ const FriendsDetails = () => {
                 <img className='rounded-full w-32 h-32 object-cover border-4 border-white' src={picture} alt={name} />
               </div>
             </div>
-            
+
             <h2 className='text-3xl font-extrabold text-gray-800 tracking-tight'>{name}</h2>
-            
+
             <div className='flex flex-wrap justify-center items-center gap-3 mt-4'>
               <p className={`px-4 py-1 text-xs font-bold uppercase tracking-wider text-white rounded-full shadow-sm 
-                ${status === 'overdue' ? 'bg-rose-500' 
-                : status === 'on track' ? 'bg-emerald-600' 
-                : 'bg-amber-500'}`}>
+                ${status === 'overdue' ? 'bg-rose-500'
+                  : status === 'on track' ? 'bg-emerald-600'
+                    : 'bg-amber-500'}`}>
                 {status}
               </p>
-              
+
               <div className='flex gap-2'>
                 {tag.map((singleTag, index) => (
                   <span key={index} className={`px-3 py-1 text-xs font-semibold rounded-full border
-                    ${singleTag === 'WORK' ? 'bg-green-50 border-green-200 text-green-700' 
-                    : singleTag === 'FAMILY' ? 'bg-blue-50 border-blue-200 text-blue-700' 
-                    : 'bg-orange-50 border-orange-200 text-orange-700'}`}>
+                    ${singleTag === 'WORK' ? 'bg-green-50 border-green-200 text-green-700'
+                      : singleTag === 'FAMILY' ? 'bg-blue-50 border-blue-200 text-blue-700'
+                        : 'bg-orange-50 border-orange-200 text-orange-700'}`}>
                     {singleTag}
                   </span>
                 ))}
@@ -61,7 +69,9 @@ const FriendsDetails = () => {
               <FiArchive className='text-xl text-blue-500' />
               Archive
             </button>
-            <button className='flex gap-3 cursor-pointer items-center justify-center bg-rose-50 hover:bg-rose-100 text-rose-600 font-semibold py-3.5 px-6 border border-rose-100 rounded-2xl shadow-sm transition-all active:scale-95'>
+            <button 
+            //onClick={()=>handleDelete(id)} 
+            className='flex gap-3 cursor-pointer items-center justify-center bg-rose-50 hover:bg-rose-100 text-rose-600 font-semibold py-3.5 px-6 border border-rose-100 rounded-2xl shadow-sm transition-all active:scale-95'>
               <MdDelete className='text-xl' />
               Delete Profile
             </button>
@@ -70,7 +80,7 @@ const FriendsDetails = () => {
 
         {/* second-column (Stats & Goals) */}
         <div className='lg:col-span-7 xl:col-span-8 space-y-6'>
-          
+
           {/* Stats Grid */}
           <div className='grid grid-cols-1 sm:grid-cols-3 gap-4'>
             <div className='bg-gradient-to-br from-white to-gray-50 border border-gray-100 shadow-lg rounded-2xl p-6 text-center transform transition hover:-translate-y-1'>
@@ -110,21 +120,22 @@ const FriendsDetails = () => {
               Quick Check-in
             </h2>
             <div className='grid grid-cols-3 gap-4'>
-              <button className='group cursor-pointer flex flex-col items-center gap-2 py-6 rounded-2xl bg-gray-50 hover:bg-indigo-600 hover:text-white transition-all duration-300 shadow-sm'>
-                <FiPhoneCall className='w-6 h-6 text-indigo-500 group-hover:text-white transition-colors'/>
+              <button onClick={()=>handleCall(expectedFriends)}
+              className='group cursor-pointer flex flex-col items-center gap-2 py-6 rounded-2xl bg-gray-50 hover:bg-indigo-600 hover:text-white transition-all duration-300 shadow-sm'>
+                <FiPhoneCall className='w-6 h-6 text-indigo-500 group-hover:text-white transition-colors' />
                 <p className='font-bold text-sm'>Call</p>
               </button>
               <button className='group cursor-pointer flex flex-col items-center gap-2 py-6 rounded-2xl bg-gray-50 hover:bg-sky-500 hover:text-white transition-all duration-300 shadow-sm'>
-                <MdOutlineTextsms className='w-7 h-7 text-sky-500 group-hover:text-white transition-colors'/>
+                <MdOutlineTextsms className='w-7 h-7 text-sky-500 group-hover:text-white transition-colors' />
                 <p className='font-bold text-sm'>Text</p>
               </button>
               <button className='group flex cursor-pointer flex-col items-center gap-2 py-6 rounded-2xl bg-gray-50 hover:bg-rose-500 hover:text-white transition-all duration-300 shadow-sm'>
-                <MdOutlineVideocam className='w-8 h-8 text-rose-500 group-hover:text-white transition-colors'/>
+                <MdOutlineVideocam className='w-8 h-8 text-rose-500 group-hover:text-white transition-colors' />
                 <p className='font-bold text-sm'>Video</p>
               </button>
             </div>
           </div>
-          
+
         </div>
       </div>
     </div>
