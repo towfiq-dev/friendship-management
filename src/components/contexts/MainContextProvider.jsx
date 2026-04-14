@@ -4,6 +4,12 @@ import { toast } from 'react-toastify';
 
 const MainContextProvider = ({children}) => {
 
+  const getCurrentDateTime = () => {
+    const now = new Date();
+    return now.toLocaleDateString('en-GB') + " | " + 
+           now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+  };
+
   const [calls, setCalls] = useState([])
   const handleCall=(currentCalls)=>{
   const isExistCalls = calls.find((call)=> call.id === currentCalls.id)
@@ -11,7 +17,8 @@ const MainContextProvider = ({children}) => {
     toast.error(`${currentCalls.name} is all ready exist`)
   }
   else{
-    setCalls([...calls, currentCalls])
+    const newCallEntry = { ...currentCalls, date: getCurrentDateTime() };
+    setCalls([...calls, newCallEntry])
     toast.success(`${currentCalls.name} is successfully added`)
   }
   }
@@ -23,7 +30,8 @@ const MainContextProvider = ({children}) => {
     toast.error(`${currentTexts.name} is all ready exist`)
   }
   else{
-    setTexts([...texts, currentTexts])
+    const newTextEntry = { ...currentTexts, date: getCurrentDateTime() };
+    setTexts([...texts, newTextEntry])
     toast.success(`${currentTexts.name} is successfully added`)
   }
   }
@@ -35,11 +43,29 @@ const MainContextProvider = ({children}) => {
     toast.error(`${currentVideos.name} is all ready exist`)
   }
   else{
-    setVideos([...videos, currentVideos])
+    const newVideoEntry = { ...currentVideos, date: getCurrentDateTime() };
+    setVideos([...videos, newVideoEntry])
     toast.success(`${currentVideos.name} is successfully added`)
   }
   }
+  
+  const handleDeleteCall=(id)=>{
+  const remaining = calls.filter((call)=> call.id !== id)
+  setCalls(remaining)
+  toast.info("Call record removed");
+  }
 
+  const handleDeleteText=(id)=>{
+    const remaining = texts.filter((text)=> text.id !== id)
+    setTexts(remaining)
+    toast.info("Text record removed");
+  }
+  
+  const handleVideoDelete=(id)=>{
+    const remaining = videos.filter((video)=> video.id !== id)
+    setVideos(remaining)
+    toast.info("Videos record removed");
+  }
   const data ={
     handleCall,
     calls, 
@@ -49,7 +75,10 @@ const MainContextProvider = ({children}) => {
     setTexts,
     videos, 
     setVideos,
-    handleVideos
+    handleVideos,
+    handleDeleteCall,
+    handleVideoDelete,
+    handleDeleteText
 
   }
   return (
