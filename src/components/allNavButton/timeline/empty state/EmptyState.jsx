@@ -4,7 +4,7 @@ import { FiInbox } from 'react-icons/fi';
 const EmptyState = () => {
   return (
     <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 mb-20'>
-      <div className='bg-white border-2 border-dashed border-gray-100 rounded-3xl p-16 text-center shadow-xl hover:shadow-2xl transition-shadow'>
+      <div className='bg-white border-2 border-dashed border-gray-100 rounded-3xl p-8 text-center shadow-xl hover:shadow-2xl transition-shadow'>
 
         <div className='flex justify-center mb-8'>
           <div className='p-6 bg-gray-50 rounded-full border border-dashed border-gray-100'>
@@ -12,11 +12,11 @@ const EmptyState = () => {
           </div>
         </div>
 
-        <h2 className='text-4xl font-extrabold text-gray-800 tracking-tight'>
+        <h2 className='text-2xl md:text-4xl font-extrabold text-gray-800 tracking-tight'>
           Your timeline is <span className='text-blue-600'>empty!</span>
         </h2>
 
-        <p className='mt-6 text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed'>
+        <p className='text-4 text-justify md:text-center md:text-xl text-gray-600 mt-6 max-w-2xl mx-auto leading-relaxed'>
           You haven't recorded any contact yet. Log your calls, texts, and video meetings to keep track of your relationships and remember your past connections.
         </p>
 

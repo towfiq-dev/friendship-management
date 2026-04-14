@@ -12,21 +12,15 @@ const Timeline = () => {
     return <EmptyState />
   }
 
-  const combinedData = [
-    ...calls.map(item => ({ ...item, type: 'Call' })),
-    ...texts.map(item => ({ ...item, type: 'Text' })),
-    ...videos.map(item => ({ ...item, type: 'Video' }))
-  ];
-
-  const processedData = combinedData
-    .filter(item => filter === 'All' ? true : item.type === filter)
-    .sort((a, b) => {
+  const sortData = (data) => {
+    return [...data].sort((a, b) => {
       if (sortBy === 'Newest') return new Date(b.date) - new Date(a.date);
       if (sortBy === 'Oldest') return new Date(a.date) - new Date(b.date);
       if (sortBy === 'NameA-Z') return a.name.localeCompare(b.name);
       if (sortBy === 'NameZ-A') return b.name.localeCompare(a.name);
       return 0;
     });
+  };
 
   return (
     <div className='max-w-300 mx-auto mt-15 mb-8 space-y-5'>
@@ -53,8 +47,8 @@ const Timeline = () => {
           <label className='text-xs font-bold text-gray-500 uppercase ml-1'>
             Sort By
           </label>
-          <select
-            onChange={(e) => setSortBy(e.target.value)}
+          <select onChange={(e) => setSortBy(e.target.value)}
+            
             className='select w-50 select-bordered shadow-sm'
           >
             <option value="Newest">Newest First</option>
@@ -65,33 +59,26 @@ const Timeline = () => {
         </div>
       </div>
 
-      <div className='space-y-4 pt-4'>
-        {processedData.map((item, index) => {
-          if (item.type === 'Call') return <Call key={index} call={item} />;
-          if (item.type === 'Text') return <Text key={index} text={item} />;
-          if (item.type === 'Video') return <Video key={index} video={item} />;
-          return null;
-        })}
-      </div>
+      
 
       <div className='space-y-5'>
         {
           (filter === 'All' || filter === 'Call') &&
-          calls.map((call, index) => <Call call={call} key={index}></Call>)
+          sortData(calls).map((call, index) => <Call call={call} key={index}></Call>)
         }
       </div>
 
       <div className='space-y-5'>
         {
           (filter === 'All' || filter === 'Text') &&
-          texts.map((text, index) => <Text text={text} key={index}></Text>)
+          sortData(texts).map((text, index) => <Text text={text} key={index}></Text>)
         }
       </div>
 
       <div className='space-y-5'>
         {
           (filter === 'All' || filter === 'Video') &&
-          videos.map((video, index) => <Video video={video} key={index}></Video>)
+          sortData(videos).map((video, index) => <Video video={video} key={index}></Video>)
         }
       </div>
     </div>

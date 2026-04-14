@@ -1,5 +1,5 @@
 import React, { use } from "react";
-const totalFetch = fetch('/friends.json').then(res=> res.json())
+const totalFetch = fetch('/friends.json').then(res => res.json())
 const State = () => {
   const result = use(totalFetch)
   const onTrackCount = result.filter(item => item.status === 'on track').length;
