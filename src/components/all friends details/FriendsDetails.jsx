@@ -64,7 +64,7 @@ const FriendsDetails = () => {
               Archive
             </button>
             <button
-              //onClick={()=>handleDelete(id)} 
+            
               className='flex gap-3 cursor-pointer items-center justify-center bg-rose-50 hover:bg-rose-100 text-rose-600 font-semibold py-3.5 px-6 border border-rose-100 rounded-2xl shadow-sm transition-all active:scale-95'>
               <MdDelete className='text-xl' />
               Delete Profile

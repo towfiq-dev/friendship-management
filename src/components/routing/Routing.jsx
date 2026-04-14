@@ -5,7 +5,7 @@ import HomePages from "../homePages/HomePages"
 import Timeline from "../allNavButton/timeline/Timeline";
 import Stats from "../allNavButton/stats/Stats";
 import FriendsDetails from "../all friends details/friendsDetails";
-
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -18,10 +18,18 @@ export const router = createBrowserRouter([
       {
         path: "/timeline",
         Component: Timeline,
+        loader: async () => {
+          await delay(1000);
+          return null
+        }
       },
       {
         path: "/stats",
         Component: Stats,
+        loader: async () => {
+          await delay(1000);
+          return null
+        }
       },
       {
         path: '/friendsDetails/:friendsDetailsId',

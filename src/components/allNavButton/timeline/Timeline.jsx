@@ -48,7 +48,7 @@ const Timeline = () => {
             Sort By
           </label>
           <select onChange={(e) => setSortBy(e.target.value)}
-            
+
             className='select w-50 select-bordered shadow-sm'
           >
             <option value="Newest">Newest First</option>
@@ -59,7 +59,7 @@ const Timeline = () => {
         </div>
       </div>
 
-      
+
 
       <div className='space-y-5'>
         {

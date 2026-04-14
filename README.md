@@ -1,16 +1,38 @@
-# React + Vite
+# 📋 FriendShip Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**FriendShip Management** is a modern web application designed to help you maintain regular contact with your friends and strengthen your relationships. It functions as a Personal Relationship Manager (PRM) that tracks when you last spoke with someone and identifies who needs your attention most.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+* **Dashboard Analytics:** Real-time statistics including Total Friends, those who are 'On Track', and friends who 'Need Attention'.
+* **Interaction Type Chart:** Visual representation of your communication (Calls, Texts, Video Calls) using interactive Pie Charts.
+* **Activity Logging:** Log calls, texts, or video meetings directly from a friend's profile with a single click.
+* **Smart Timeline:** A detailed chronological history of all interactions with advanced Filtering and Sorting capabilities.
+* **Automated Status Tracking:** Dynamic status updates ('On Track', 'Almost Due', or 'Overdue') based on the frequency of your interactions.
+* **Profile Management:** Dedicated profile pages for each friend showcasing their bio, relationship goals, and contact information.
+* **Fully Responsive Design:** Optimized for a seamless user experience across Mobile, Tablet, and Desktop devices.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🚀 Technology Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Built with the latest frontend technologies for speed and scalability:
+
+* **React.js:** For building a dynamic and component-based User Interface.
+* **Tailwind CSS:** For custom, clean, and modern styling.
+* **DaisyUI:** For high-quality, ready-to-use UI components.
+* **React Router Dom:** For seamless page navigation and dynamic routing.
+* **Recharts:** For data visualization and interactive friendship analytics.
+* **React Icons:** For intuitive and visually appealing iconography.
+* **React Toastify:** For beautiful, non-intrusive notifications and alerts.
+* **Context API:** For efficient global state management across the application.
+
+---
+
+## 👨‍💻 Developed By
+
+**[Towfiqul Islam]**
+* GitHub: [https://github.com/towfiq-dev]
+* LinkedIn: [https://www.linkedin.com/in/towfiqul-islam1]
