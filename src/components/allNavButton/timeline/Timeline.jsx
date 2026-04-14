@@ -23,7 +23,7 @@ const Timeline = () => {
   };
 
   return (
-    <div className='max-w-300 mx-auto mt-15 mb-8 space-y-5'>
+    <div className='max-w-300 mx-auto mt-15 mb-8 space-y-5 p-3'>
       <h2 className='text-3xl font-semibold'>Timeline</h2>
 
       <div className='flex justify-between items-center'>
@@ -34,7 +34,7 @@ const Timeline = () => {
           </label>
           <select
             onChange={(e) => setFilter(e.target.value)}
-            className='select border w-50 border-black shadow-md py-2 px-4 rounded'
+            className='select border w-30 md:w-50 border-black shadow-md py-2 px-4 rounded'
             name="" id="">
             <option className='font-semibold' selected value="All">Show All</option>
             <option className='font-semibold' value="Call">Call</option>
@@ -49,7 +49,7 @@ const Timeline = () => {
           </label>
           <select onChange={(e) => setSortBy(e.target.value)}
 
-            className='select w-50 select-bordered shadow-sm'
+            className='select w-30 md:w-50 select-bordered shadow-sm'
           >
             <option value="Newest">Newest First</option>
             <option value="Oldest">Oldest First</option>

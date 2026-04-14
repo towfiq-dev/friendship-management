@@ -13,7 +13,7 @@ const Stats = () => {
 
   if (calls.length === 0 && texts.length === 0 && videos.length === 0) {
     return (
-      <div className='max-w-280 mx-auto px-4 sm:px-6 lg:px-8 mt-10 mb-10'>
+      <div className='max-w-280 mx-auto px-4 sm:px-6 lg:px-8 mt-20 md:mt-13 mb-10'>
         <h1 className='text-xl md:text-2xl lg:text-3xl mb-5 font-bold text-gray-800 tracking-tight'>
           Friendship <span className='text-indigo-600'>Analytics</span>
         </h1>
@@ -47,7 +47,7 @@ const Stats = () => {
     );
   }
   return (
-    <div className='max-w-300 mx-auto mt-10 mb-10'>
+    <div className='max-w-300 mx-auto mt-20 mb-20 p-3'>
       <h1 className='text-3xl mb-5 font-bold text-gray-800 tracking-tight'>
         Friendship <span className='text-indigo-600'>Analytics</span>
       </h1>

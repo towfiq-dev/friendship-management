@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
         path: "/timeline",
         Component: Timeline,
         loader: async () => {
-          await delay(1000);
+          await delay(500);
           return null
         }
       },
@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
         path: "/stats",
         Component: Stats,
         loader: async () => {
-          await delay(1000);
+          await delay(500);
           return null
         }
       },

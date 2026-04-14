@@ -7,7 +7,7 @@ import Navlogo from "../../assets/asset/navlogo.png";
 
 const Navbar = () => {
   const links = (
-    <div className="flex justify-center items-center gap-6 text-gray-600">
+    <div className="flex justify-center items-center gap-2 md:gap-6 text-gray-600">
       <NavbarStructure to={"/"}>
         <IoHomeOutline />
         Home
@@ -23,7 +23,7 @@ const Navbar = () => {
     </div>
   );
   return (
-    <header className="sticky top-0 z-50 bg-base-300 shadow-sm">
+    <header className="sticky top-0 z-50 bg-base-300 shadow-sm p-3">
       <nav className="navbar max-w-300 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -46,12 +46,12 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-73 p-2 shadow"
+              className="menu menu-l justify-center dropdown-content bg-base-100 rounded-box z-1 mt-8 text-[14px] md:text-[18px] max-w-83 md:max-w-96 p-2 shadow"
             >
               {links}
             </ul>
           </div>
-          <img src={Navlogo} alt="" />
+          <img className="hidden sm:block" src={Navlogo} alt="Logo" />
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>

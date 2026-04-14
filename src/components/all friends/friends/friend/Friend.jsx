@@ -9,7 +9,7 @@ const Friend = ({friend}) => {
       </div>
       <h1 className='text-2xl font-bold'>{name}</h1>
       <p className='text-gray-500 mt-2'>{days_since_contact}d ago</p>
-      <div className='flex justify-center gap-25 mt-2'>
+      <div className='flex justify-center gap-15 mt-2'>
         {
         tag.map((singleTag, index)=> { 
           return(

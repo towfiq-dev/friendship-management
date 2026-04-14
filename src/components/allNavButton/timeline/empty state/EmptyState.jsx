@@ -3,7 +3,7 @@ import { MdCall, MdHistory, MdOutlineTextsms } from 'react-icons/md';
 import { FiInbox } from 'react-icons/fi';
 const EmptyState = () => {
   return (
-    <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 mb-20'>
+    <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 mb-20'>
       <div className='bg-white border-2 border-dashed border-gray-100 rounded-3xl p-8 text-center shadow-xl hover:shadow-2xl transition-shadow'>
 
         <div className='flex justify-center mb-8'>

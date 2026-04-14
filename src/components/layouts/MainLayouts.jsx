@@ -11,7 +11,7 @@ const MainLayouts = () => {
       <Navbar></Navbar>
       {isLoading && (
         <div className="flex justify-center items-center min-h-screen fixed inset-0 bg-white/50 z-50">
-           <span className="loading loading-bars w-24 h-24 text-primary"></span>
+          <span className="loading loading-bars w-24 h-24 text-primary"></span>
         </div>
       )}
       <Outlet></Outlet>
