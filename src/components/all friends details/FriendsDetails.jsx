@@ -13,7 +13,7 @@ const FriendsDetails = () => {
 
   const expectedFriends = friendsDetailsData.find((friends) => friends.id == friendsDetailsId)
   const { name, picture, tag, status, bio, goal, next_due_date, days_since_contact, email} = expectedFriends
-  const {handleCall} = useContext(MainContext)
+  const {handleCall, handleText, handleVideos} = useContext(MainContext)
   
   // const [removed, setRemoved] = useState(expectedFriends)
   // const handleDelete = (current)=>{
@@ -125,11 +125,13 @@ const FriendsDetails = () => {
                 <FiPhoneCall className='w-6 h-6 text-indigo-500 group-hover:text-white transition-colors' />
                 <p className='font-bold text-sm'>Call</p>
               </button>
-              <button className='group cursor-pointer flex flex-col items-center gap-2 py-6 rounded-2xl bg-gray-50 hover:bg-sky-500 hover:text-white transition-all duration-300 shadow-sm'>
+              <button onClick={()=>handleText(expectedFriends)}
+              className='group cursor-pointer flex flex-col items-center gap-2 py-6 rounded-2xl bg-gray-50 hover:bg-sky-500 hover:text-white transition-all duration-300 shadow-sm'>
                 <MdOutlineTextsms className='w-7 h-7 text-sky-500 group-hover:text-white transition-colors' />
                 <p className='font-bold text-sm'>Text</p>
               </button>
-              <button className='group flex cursor-pointer flex-col items-center gap-2 py-6 rounded-2xl bg-gray-50 hover:bg-rose-500 hover:text-white transition-all duration-300 shadow-sm'>
+              <button onClick={()=>handleVideos(expectedFriends)}
+              className='group flex cursor-pointer flex-col items-center gap-2 py-6 rounded-2xl bg-gray-50 hover:bg-rose-500 hover:text-white transition-all duration-300 shadow-sm'>
                 <MdOutlineVideocam className='w-8 h-8 text-rose-500 group-hover:text-white transition-colors' />
                 <p className='font-bold text-sm'>Video</p>
               </button>
