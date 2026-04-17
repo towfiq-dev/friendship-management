@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Friend = ({friend}) => {
   const {picture, name, days_since_contact, status, tag, id} = friend
   return (
-    <Link to={`/friendsDetails/${id}`} className='shadow-md p-5 rounded-xl text-center'>
+    <Link to={`/friendsDetails/${id}`} className="block shadow-md p-5 rounded-xl text-center transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl bg-white border border-transparent hover:border-gray-100">
       <div className='flex justify-center mb-2'>
         <img className='rounded-full' src={picture} alt="" />
       </div>

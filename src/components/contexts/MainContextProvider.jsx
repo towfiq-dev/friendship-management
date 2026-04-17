@@ -7,19 +7,19 @@ const MainContextProvider = ({children}) => {
   const getCurrentDateTime = () => {
     const now = new Date();
     return now.toLocaleDateString('en-GB') + " | " + 
-           now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+          now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
   };
 
   const [calls, setCalls] = useState([])
   const handleCall=(currentCalls)=>{
   const isExistCalls = calls.find((call)=> call.id === currentCalls.id)
   if (isExistCalls) {
-    toast.error(`${currentCalls.name} is all ready exist`)
+    toast.error(`You have already called ${currentCalls.name}!`);
   }
   else{
     const newCallEntry = { ...currentCalls, date: getCurrentDateTime() };
     setCalls([...calls, newCallEntry])
-    toast.success(`${currentCalls.name} is successfully added`)
+    toast.success(`Call started with ${currentCalls.name}.`)
   }
   }
 
@@ -27,12 +27,12 @@ const MainContextProvider = ({children}) => {
   const handleText=(currentTexts)=>{
   const isExistTexts = texts.find((text)=> text.id === currentTexts.id)
   if (isExistTexts) {
-    toast.error(`${currentTexts.name} is all ready exist`)
+    toast.error(`You already have an active chat with ${currentTexts.name}.`);
   }
   else{
     const newTextEntry = { ...currentTexts, date: getCurrentDateTime() };
     setTexts([...texts, newTextEntry])
-    toast.success(`${currentTexts.name} is successfully added`)
+    toast.success(`Message sent to ${currentTexts.name} successfully!`);
   }
   }
 
@@ -40,12 +40,12 @@ const MainContextProvider = ({children}) => {
   const handleVideos=(currentVideos)=>{
   const isExistVideos = videos.find((video)=> video.id === currentVideos.id)
   if (isExistVideos) {
-    toast.error(`${currentVideos.name} is all ready exist`)
+  toast.error(`A video call session with ${currentVideos.name} already exists.`);
   }
   else{
     const newVideoEntry = { ...currentVideos, date: getCurrentDateTime() };
     setVideos([...videos, newVideoEntry])
-    toast.success(`${currentVideos.name} is successfully added`)
+    toast.success(`Connecting video call with ${currentVideos.name}...`);
   }
   }
   
